@@ -1,0 +1,38 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class MaximumMinimumSumDifference {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of elements in the array: ");
+        int size = scanner.nextInt();
+
+        int[] array = new int[size];
+
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        System.out.print("Enter the value of M: ");
+        int M = scanner.nextInt();
+
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+
+        int[] sortedArray = Arrays.copyOf(array, size);
+        Arrays.sort(sortedArray);
+
+        int MthMax = sortedArray[size - M];
+        int NthMin = sortedArray[N - 1];
+
+        int sumResult = MthMax + NthMin;
+        int diffResult = MthMax - NthMin;
+
+        System.out.println(M + "st Maximum Number = " + MthMax);
+        System.out.println(N + "rd Minimum Number = " + NthMin);
+        System.out.println("Sum = " + sumResult);
+        System.out.println("Difference = " + diffResult);
+    }
+}
